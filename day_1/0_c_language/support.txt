@@ -1,0 +1,4 @@
+https://linux.die.net/man/1/g++
+https://learn.microsoft.com/fr-fr/cpp/cpp/?view=msvc-170
+https://learn.microsoft.com/fr-fr/windows/wsl/install
+https://www.youtube.com/@CppCon

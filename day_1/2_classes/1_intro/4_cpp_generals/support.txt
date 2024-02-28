@@ -1,0 +1,10 @@
+initialization:
+    https://www.youtube.com/watch?v=_23qmZtDBxg
+
+
+async:
+https://www.youtube.com/watch?v=B4IWyN9H5-A
+
+
+iterators:
+    https://www.youtube.com/watch?v=26aW6aBVpk0

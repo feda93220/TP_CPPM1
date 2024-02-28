@@ -1,0 +1,59 @@
+Règles issues de C:
+    scalars (simple values): int, char, float, enum, pointers
+    aggregates (made of scalars): structures, arrays
+
+
+On peut initialiser des valeurs simples/scalaires comme en C:
+    int x = 3;
+    int pointer = &x;
+En C++ on appelle ca "copy-initialization"
+
+On peut initialiser des aggrégats avec "{}":
+    struct widget {
+        int id;
+        double price;
+    };
+    widget w1 = {100, 23.4};
+    int values[3] = {1, 2, 3};
+En C++ on appelle cela "aggregate initialization"
+
+On peut faire une "copy initialization" d'une structure:
+    widget w2 = w1;
+Mais pas d'un array:
+    int a[2] = {1, 2};
+    int b[2] = a; <- error
+
+
+Si pas de constructeur explicite:
+    struct widget {
+        int id;
+        double price;
+    };
+    widget w1 = {100};
+    revient à faire widget w1 = {100, 0, 0};
+
+    int values[2] = {1};
+    revient à faire int values[2] = {1, 0};
+
+Constructeur par défaut:
+    Sans arguments ou alors
+    tous les arguments on des valeurs par défaut
+
+
+Reprend le nom de la classe
+Person::Person();
+
+Person(int age) {
+    this -> age = age;
+}
+
+Person(int a) {
+    age = a;
+}
+
+Person(int age): age(age) {}
+
+
+
+Desctructeur: ~Person():
+    Appelé en fin de vie d'un objet
