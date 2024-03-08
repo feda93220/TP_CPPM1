@@ -1,0 +1,28 @@
+https://playgameoflife.com/ :
+    https://www.youtube.com/watch?v=S-W0NX97DB0&t=875s
+
+Exploring how computers work:
+    https://www.youtube.com/playlist?list=PLFt_AvWsXl0dPhqVsKt1Ni_46ARyiCGSq
+
+Programming Paradigms:
+    https://www.youtube.com/playlist?list=PL9D558D49CA734A02
+
+On a reçu l'électronicien qui a cracké sa carte bancaire:
+    https://www.youtube.com/watch?v=bkPuQD3R200
+
+Luc Julia - L'intelligence artificielle n'existe pas:
+    https://www.youtube.com/watch?v=z6eY1QME-F0
+
+safe c++
+    https://www.youtube.com/watch?v=I8UvQKvOSSw
+
+c++ in a constrained environment:
+    https://www.youtube.com/watch?v=2BuJjaGuInI
+
+objects lieftime:
+    https://www.youtube.com/watch?v=XN__qATWExc
+
+Boost:
+    https://www.boost.org/
+    https://github.com/boostorg
+    sudo apt install libboost-all-dev

@@ -1,0 +1,639 @@
+==254312== Memcheck, a memory error detector
+==254312== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==254312== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==254312== Command: ./a.out
+==254312== Parent PID: 254311
+==254312== 
+--254312-- 
+--254312-- Valgrind options:
+--254312--    --leak-check=full
+--254312--    --show-leak-kinds=all
+--254312--    --track-origins=yes
+--254312--    --verbose
+--254312--    --log-file=valgrind-out.txt
+--254312-- Contents of /proc/version:
+--254312--   Linux version 5.15.146.1-microsoft-standard-WSL2 (root@65c757a075e2) (gcc (GCC) 11.2.0, GNU ld (GNU Binutils) 2.37) #1 SMP Thu Jan 11 04:09:03 UTC 2024
+--254312-- 
+--254312-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--254312-- Page sizes: currently 4096, max supported 4096
+--254312-- Valgrind library directory: /usr/libexec/valgrind
+--254312-- Reading syms from /home/OBud/CourseC/day_2/0_c++/a.out
+--254312-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--254312--   Considering /usr/lib/debug/.build-id/15/921ea631d9f36502d20459c43e5c85b7d6ab76.debug ..
+--254312--   .. build-id is valid
+--254312-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--254312--    object doesn't have a symbol table
+--254312--    object doesn't have a dynamic symbol table
+--254312-- Scheduler: using generic scheduler lock implementation.
+--254312-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==254312== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-254312-by-OBud-on-???
+==254312== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-254312-by-OBud-on-???
+==254312== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-254312-by-OBud-on-???
+==254312== 
+==254312== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==254312== don't want to do, unless you know exactly what you're doing,
+==254312== or are doing some strange experiment):
+==254312==   /usr/bin/vgdb --pid=254312 ...command...
+==254312== 
+==254312== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==254312==   /path/to/gdb ./a.out
+==254312== and then give GDB the following command
+==254312==   target remote | /usr/bin/vgdb --pid=254312
+==254312== --pid is optional if only one valgrind process is running
+==254312== 
+--254312-- REDIR: 0x402aa40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
+--254312-- REDIR: 0x402a810 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
+--254312-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--254312--    object doesn't have a symbol table
+--254312-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--254312--    object doesn't have a symbol table
+==254312== WARNING: new redirection conflicts with existing -- ignoring it
+--254312--     old: 0x0402aa40 (strlen              ) R-> (0000.0) 0x580bcec2 ???
+--254312--     new: 0x0402aa40 (strlen              ) R-> (2007.0) 0x0484ee30 strlen
+--254312-- REDIR: 0x4027220 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484fcd0 (strcmp)
+--254312-- REDIR: 0x402afa0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4853840 (mempcpy)
+--254312-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+--254312--    object doesn't have a symbol table
+--254312-- Reading syms from /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+--254312--    object doesn't have a symbol table
+--254312-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--254312--   Considering /usr/lib/debug/.build-id/c2/89da5071a3399de893d2af81d6a30c62646e1e.debug ..
+--254312--   .. build-id is valid
+==254312== WARNING: new redirection conflicts with existing -- ignoring it
+--254312--     old: 0x04b52c60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--254312--     new: 0x04b52c60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==254312== WARNING: new redirection conflicts with existing -- ignoring it
+--254312--     old: 0x04b52c60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--254312--     new: 0x04b52c60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+==254312== WARNING: new redirection conflicts with existing -- ignoring it
+--254312--     old: 0x04b52c60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--254312--     new: 0x04b52c60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==254312== WARNING: new redirection conflicts with existing -- ignoring it
+--254312--     old: 0x04b52c60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--254312--     new: 0x04b52c60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+--254312-- Reading syms from /usr/lib/x86_64-linux-gnu/libm.so.6
+--254312--   Considering /usr/lib/debug/.build-id/a8/8ef0199bd5e742ebd0c359edf5cb2be0ec08b5.debug ..
+--254312--   .. build-id is valid
+--254312-- REDIR: 0x4b55720 (libc.so.6:strnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b559e0 (libc.so.6:strpbrk) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b552e0 (libc.so.6:strcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b73cd0 (libc.so.6:wcsnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b566d0 (libc.so.6:memset) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b72540 (libc.so.6:wcslen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b56c10 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b72370 (libc.so.6:wcschr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b55260 (libc.so.6:index) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b55960 (libc.so.6:rindex) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b565a0 (libc.so.6:memmove) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+==254312== Preferring higher priority redirection:
+--254312--     old: 0x04c4d7c0 (__memcpy_avx_unalign) R-> (2018.0) 0x04850f90 __memcpy_avx_unaligned_erms
+--254312--     new: 0x04c4d7c0 (__memcpy_avx_unalign) R-> (2018.1) 0x04852880 memmove
+--254312-- REDIR: 0x4b723f0 (libc.so.6:wcscmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b569e0 (libc.so.6:stpncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b729b0 (libc.so.6:wmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b55830 (libc.so.6:strncmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b56a70 (libc.so.6:strcasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b55420 (libc.so.6:strcspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b72470 (libc.so.6:wcscpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b551d0 (libc.so.6:strcat) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b56b60 (libc.so.6:strncasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b56480 (libc.so.6:bcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b5e570 (libc.so.6:memrchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b58010 (libc.so.6:strchrnul) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b55390 (libc.so.6:strcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b56b10 (libc.so.6:strcasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b556a0 (libc.so.6:strlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b558d0 (libc.so.6:strncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b56950 (libc.so.6:stpcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b563f0 (libc.so.6:memchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b55b00 (libc.so.6:strspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b567d0 (libc.so.6:mempcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b56ac0 (libc.so.6:strncasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4b57f80 (libc.so.6:rawmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--254312-- REDIR: 0x4c4a610 (libc.so.6:__strrchr_avx2) redirected to 0x484e810 (rindex)
+--254312-- REDIR: 0x4b520a0 (libc.so.6:malloc) redirected to 0x4848820 (malloc)
+--254312-- REDIR: 0x490f970 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4848fa0 (operator new(unsigned long))
+--254312-- REDIR: 0x4c4df80 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x4852770 (memset)
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1097C2: std::_MakeUniq<Thing>::__single_object std::make_unique<Thing, int>(int&&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109614: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x4dd3d69 is 0 bytes after a block of size 25 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1097C2: std::_MakeUniq<Thing>::__single_object std::make_unique<Thing, int>(int&&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109614: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x5b4b6c0 is 0 bytes after a block of size 10,000,000 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x4dd3e2e is 0 bytes after a block of size 30 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109359: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x64d56c0 is 0 bytes after a block of size 10,000,000 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109359: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109359: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x4dd401e is 0 bytes after a block of size 30 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109359: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+--254312-- REDIR: 0x490dc20 (libstdc++.so.6:operator delete(void*, unsigned long)) redirected to 0x484bb00 (operator delete(void*, unsigned long))
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1097C2: std::_MakeUniq<Thing>::__single_object std::make_unique<Thing, int>(int&&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109614: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x4dd4149 is 0 bytes after a block of size 25 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1097C2: std::_MakeUniq<Thing>::__single_object std::make_unique<Thing, int>(int&&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109614: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x6e5f6c0 is 0 bytes after a block of size 10,000,000 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x4dd420e is 0 bytes after a block of size 30 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093B3: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x77e96c0 is 0 bytes after a block of size 10,000,000 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093B3: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093B3: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x4dd43fe is 0 bytes after a block of size 30 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093B3: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+--254312-- REDIR: 0x4b523e0 (libc.so.6:free) redirected to 0x484b210 (free)
+==254312== 
+==254312== HEAP SUMMARY:
+==254312==     in use at exit: 20,000,286 bytes in 12 blocks
+==254312==   total heap usage: 25 allocs, 13 frees, 40,073,276 bytes allocated
+==254312== 
+==254312== Searching for pointers to 12 not-freed blocks
+==254312== Checked 20,148,208 bytes
+==254312== 
+==254312== 24 bytes in 1 blocks are indirectly lost in loss record 1 of 12
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x1097B4: std::_MakeUniq<Thing>::__single_object std::make_unique<Thing, int>(int&&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109614: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 24 bytes in 1 blocks are indirectly lost in loss record 2 of 12
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x1097B4: std::_MakeUniq<Thing>::__single_object std::make_unique<Thing, int>(int&&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109614: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093B3: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 24 bytes in 1 blocks are definitely lost in loss record 3 of 12
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10961E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 24 bytes in 1 blocks are definitely lost in loss record 4 of 12
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10961E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 25 bytes in 1 blocks are indirectly lost in loss record 5 of 12
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1097C2: std::_MakeUniq<Thing>::__single_object std::make_unique<Thing, int>(int&&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109614: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 25 bytes in 1 blocks are indirectly lost in loss record 6 of 12
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1097C2: std::_MakeUniq<Thing>::__single_object std::make_unique<Thing, int>(int&&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109614: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093B3: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 30 bytes in 1 blocks are indirectly lost in loss record 7 of 12
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 30 bytes in 1 blocks are indirectly lost in loss record 8 of 12
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093B3: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 119 (40 direct, 79 indirect) bytes in 1 blocks are definitely lost in loss record 9 of 12
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x1092C1: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 119 (40 direct, 79 indirect) bytes in 1 blocks are definitely lost in loss record 10 of 12
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x1092C1: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093B3: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 10,000,000 bytes in 1 blocks are possibly lost in loss record 11 of 12
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 10,000,000 bytes in 1 blocks are possibly lost in loss record 12 of 12
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== LEAK SUMMARY:
+==254312==    definitely lost: 128 bytes in 4 blocks
+==254312==    indirectly lost: 158 bytes in 6 blocks
+==254312==      possibly lost: 20,000,000 bytes in 2 blocks
+==254312==    still reachable: 0 bytes in 0 blocks
+==254312==         suppressed: 0 bytes in 0 blocks
+==254312== 
+==254312== ERROR SUMMARY: 18 errors from 16 contexts (suppressed: 0 from 0)
+==254312== 
+==254312== 1 errors in context 1 of 16:
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093B3: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x4dd43fe is 0 bytes after a block of size 30 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093B3: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 
+==254312== 1 errors in context 2 of 16:
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093B3: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x77e96c0 is 0 bytes after a block of size 10,000,000 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093B3: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 
+==254312== 1 errors in context 3 of 16:
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x4dd420e is 0 bytes after a block of size 30 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 
+==254312== 1 errors in context 4 of 16:
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x6e5f6c0 is 0 bytes after a block of size 10,000,000 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 
+==254312== 1 errors in context 5 of 16:
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109359: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x4dd401e is 0 bytes after a block of size 30 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109359: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 
+==254312== 1 errors in context 6 of 16:
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109359: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x64d56c0 is 0 bytes after a block of size 10,000,000 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109359: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 
+==254312== 1 errors in context 7 of 16:
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x4dd3e2e is 0 bytes after a block of size 30 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10964B: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 
+==254312== 1 errors in context 8 of 16:
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x5b4b6c0 is 0 bytes after a block of size 10,000,000 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10962E: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 
+==254312== 2 errors in context 9 of 16:
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1097C2: std::_MakeUniq<Thing>::__single_object std::make_unique<Thing, int>(int&&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109614: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x4dd4149 is 0 bytes after a block of size 25 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1097C2: std::_MakeUniq<Thing>::__single_object std::make_unique<Thing, int>(int&&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109614: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1092F3: make_person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1093AA: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== 
+==254312== 2 errors in context 10 of 16:
+==254312== Invalid write of size 1
+==254312==    at 0x1094DB: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1097C2: std::_MakeUniq<Thing>::__single_object std::make_unique<Thing, int>(int&&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109614: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==  Address 0x4dd3d69 is 0 bytes after a block of size 25 alloc'd
+==254312==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==254312==    by 0x10A5E4: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A3F3: std::allocator_traits<std::allocator<char> >::allocate(std::allocator<char>&, unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10A257: std::_Vector_base<char, std::allocator<char> >::_M_allocate(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109EF0: std::_Vector_base<char, std::allocator<char> >::_M_create_storage(unsigned long) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109AB0: std::_Vector_base<char, std::allocator<char> >::_Vector_base(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1096E6: std::vector<char, std::allocator<char> >::vector(unsigned long, std::allocator<char> const&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1094A8: Thing::Thing(int) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1097C2: std::_MakeUniq<Thing>::__single_object std::make_unique<Thing, int>(int&&) (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x109614: Person::Person() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x1098E2: std::_MakeUniq<Person>::__single_object std::make_unique<Person>() (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312==    by 0x10934D: main (in /home/OBud/CourseC/day_2/0_c++/a.out)
+==254312== 
+==254312== ERROR SUMMARY: 18 errors from 16 contexts (suppressed: 0 from 0)
