@@ -11,3 +11,4 @@ g++ -o main \
     location/services.cpp \
     registration/models.cpp \
     registration/services.cpp \
+    -I/usr/include/openssl -lssl -lcrypto

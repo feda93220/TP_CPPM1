@@ -1,4 +1,12 @@
 #include "encryption.hpp"
+#include <openssl/sha.h>
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+#include <openssl/evp.h>
+#include <iomanip>
+#include <sstream>
 
 #include <bitset>
 
@@ -16,7 +24,31 @@ void Password::encrypt(const string &password) {
     // for (char c: password) {
     //     encrypted_password.append(c + "");
     // }
-    encrypted_password = "aaa";
+    
+
+    const std::string SECRET = "SECRET";
+    
+    // Data to hash
+    std::string data = password + SECRET;
+
+    // Buffer to store the hash (SHA-256 is 256 bits, i.e., 32 bytes)
+    unsigned char hash[SHA256_DIGEST_LENGTH];
+
+    // Initialize a SHA-256 context
+    SHA256_CTX sha256;
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, data.c_str(), data.size());
+    SHA256_Final(hash, &sha256);
+
+    // Convert the hash to a hex string
+    std::stringstream hexstream;
+    for (int i = 0; i < SHA256_DIGEST_LENGTH; i++) {
+        hexstream << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
+    }
+    encrypted_password = hexstream.str();
+    
+
+    
     _encrypted_value = encrypted_password;
 }
 

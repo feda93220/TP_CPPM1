@@ -65,7 +65,7 @@ int encryption() {
     auto world = make_world(100);
     auto user = make_user(world.get());
 
-    string raw_password = "toto123";
+    string raw_password = "asdfsdfatoto123";
     user->set_password(raw_password);
     user->log_in(raw_password);
     cout << "Check 1: " << user->is_logged_in() << endl;
