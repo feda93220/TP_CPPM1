@@ -52,6 +52,7 @@ int main(int argc, char const *argv[]) {
     // system(reset_db);
      encryption(); //j'appelle la fonction ici 
      return 0;
+
 }
 
 // Definition de la fonction
@@ -65,7 +66,7 @@ int encryption() {
     auto world = make_world(100);
     auto user = make_user(world.get());
 
-    string raw_password = "asdfsdfatoto123";
+    string raw_password = "BestPassword";
     user->set_password(raw_password);
     user->log_in(raw_password);
     cout << "Check 1: " << user->is_logged_in() << endl;
@@ -81,9 +82,10 @@ int encryption() {
     auto refreshed_from_db = get_user(*data_mapper, user->id());
     cout << refreshed_from_db->password() << endl;
     refreshed_from_db->log_out();
-    string password_from_db = "que";
+    string password_from_db = "BestPassword";
     refreshed_from_db->log_in(password_from_db);
     cout << "Check 4: " << refreshed_from_db->is_logged_in() << endl;
+    // Ici il faut faire demander a l'utilisateur de entrer son mot de passe et comparer son hash avec le hash deja connu.
     return 0;
 }
 
