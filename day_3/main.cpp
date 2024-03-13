@@ -154,6 +154,13 @@ int create_path_in_graph() {
                 auto next_long = next_location->longitude();
 
                 while (not (player->location() == next_location)) {
+                    // ici on compare les pointeurs
+                    // si dans WorldMapper::get on enlève le fait
+                    // d'aller rechercher l'instance, le pointeur
+                    // va changer malgré le fait qu'on créé exactement
+                    // le même world depuis la DB
+                    // si on compare les objets avec l'ajout de
+                    // Location::operator== alors on compare les valeurs
                     auto player_lat = player->location()->latitude();
                     auto player_long = player->location()->longitude();
 

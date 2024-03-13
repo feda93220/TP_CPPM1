@@ -47,7 +47,7 @@ class Location {
         explicit Location(int id, int x, int y);
         bool operator<(const Location& other) const;
         bool operator==(const Location &other) const;
-        Location &operator=(const Location &other);
+
         int id;
         World &world();
         int latitude();
