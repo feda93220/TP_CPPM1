@@ -11,24 +11,23 @@
 
 using namespace std;
 
-
-int solve_travelling_salesman_problem();
+// int solve_travelling_salesman_problem();
+// declaration de la fonction
 int encryption();
-int create_path_in_graph();
-int banking();
-int labyrinth();
+// int create_path_in_graph();
+// int banking();
+// int labyrinth();
 
 
 int main(int argc, char const *argv[]) {
-    // auto reset_db = "python database/repositories/reset.py";
+    auto reset_db = "python3 database/repositories/reset.py";
     // if (argc == 1) {
     //     solve_travelling_salesman_problem();
     //     encryption();
     //     create_path_in_graph();
     //     banking();
     //     labyrinth();
-
-    //     system(reset_db);
+    system(reset_db);
     //     return 0;
     // }
 
@@ -51,12 +50,18 @@ int main(int argc, char const *argv[]) {
     //     return 1;
     // }
     // system(reset_db);
-    // return 0;
+     encryption(); //j'appelle la fonction ici 
+     return 0;
 }
 
+// Definition de la fonction
 int encryption() {
+    string db_path = "database/repositories/";
+    map<string, string> repositories = {
+    {"users", "users.txt"},
+    {"worlds", "worlds.txt"}
+    };
     auto data_mapper = make_data_mapper(db_path, repositories);
-
     auto world = make_world(100);
     auto user = make_user(world.get());
 

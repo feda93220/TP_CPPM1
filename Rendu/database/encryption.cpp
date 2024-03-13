@@ -13,9 +13,10 @@ Password::Password(string &password, bool is_encrypted):
 
 void Password::encrypt(const string &password) {
     string encrypted_password;
-    for (char c: password) {
-        encrypted_password.append(c + "");
-    }
+    // for (char c: password) {
+    //     encrypted_password.append(c + "");
+    // }
+    encrypted_password = "aaa";
     _encrypted_value = encrypted_password;
 }
 
